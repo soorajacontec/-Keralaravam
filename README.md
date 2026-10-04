@@ -44,14 +44,10 @@
 - Backup and restore of uploads, mixes and settings to a .zip file.
 - Built-in "How to use" guide (the ? button) and About page (tap the logo).
 
-## Put it online with GitHub Pages (free)
+## Open Online
 
-1. Create a new **public** repository on GitHub, for example `keralaravam`.
-2. Upload everything in this folder to the repository root, so `index.html` sits at the top level, not inside another folder.
-3. In the repository go to **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, branch **main**, folder **/ (root)**, then **Save**.
-4. After a minute or two the site is live at `https://YOUR-USERNAME.github.io/keralaravam/`. Put that link at the top of this README.
+`https://soorajacontec.github.io/keralaravam/`
 
-GitHub Pages serves the site over HTTPS, which is what lets phones install it as an app and play offline.
 
 ## Install on a phone
 
