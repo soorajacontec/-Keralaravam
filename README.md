@@ -95,7 +95,7 @@ To add or replace a built-in recording, put the MP3 in `audio/`, add its loop st
 ## Credits
 
 - **Created by Sooraj Mavelikkara** · soorajmavelikkara@gmail.com
-- **Recordings:** Panchavadyam by Maniyam Parambil Mani Nair; Panchari Melam and Chempada Melam by Cheranellur Sankarankutty Marar; Pandi Melam by Pariyanampatta Melam 2024; Keli by Young Mahadev Raja Parakatav & Team; Edakka Sopanam: "Minnum Ponnin Chilambum"; Thayambaka, Adantha and Anchadantha from single performances. All recordings remain the property of their artists and rights holders.
+- **Recordings:**  All recordings remain the property of their artists and rights holders.
 - **lamejs** MP3 encoder (LGPL), see `vendor/lamejs-LICENSE`.
 - Festival ambience, electronic versions, animations and icons are made in the app.
 
