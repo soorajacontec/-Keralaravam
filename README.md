@@ -46,7 +46,7 @@
 
 ## Open Online
 
-`https://soorajacontec.github.io/-Keralaravam/`
+**[▶ Open the live app](https://soorajacontec.github.io/-Keralaravam)**
 
 
 ## Install on a phone
