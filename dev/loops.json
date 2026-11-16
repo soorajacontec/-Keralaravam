@@ -1,0 +1,186 @@
+{
+ "chempada-1": {
+  "file": "audio/chempada-1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 22.84639455782313
+ },
+ "chempada-2": {
+  "file": "audio/chempada-2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 21.574195011337867
+ },
+ "chempada-3": {
+  "file": "audio/chempada-3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 25.960294784580498
+ },
+ "chempada-4": {
+  "file": "audio/chempada-4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 24.454421768707483
+ },
+ "panchavadyam-k1": {
+  "file": "audio/panchavadyam-k1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 19.925532879818594
+ },
+ "panchavadyam-k2": {
+  "file": "audio/panchavadyam-k2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 19.50467120181406
+ },
+ "panchavadyam-k3": {
+  "file": "audio/panchavadyam-k3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 15.049342403628119
+ },
+ "panchavadyam-k4": {
+  "file": "audio/panchavadyam-k4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 9.310385487528345
+ },
+ "panchari-k1": {
+  "file": "audio/panchari-k1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 18.062131519274377
+ },
+ "panchari-k2": {
+  "file": "audio/panchari-k2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 17.324897959183673
+ },
+ "panchari-k3": {
+  "file": "audio/panchari-k3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 15.647256235827664
+ },
+ "panchari-k4": {
+  "file": "audio/panchari-k4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 9.27265306122449
+ },
+ "pandi-k1": {
+  "file": "audio/pandi-k1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 7.780770975056689
+ },
+ "pandi-k2": {
+  "file": "audio/pandi-k2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 19.04607709750567
+ },
+ "pandi-k3": {
+  "file": "audio/pandi-k3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 9.104308390022675
+ },
+ "pandi-k4": {
+  "file": "audio/pandi-k4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 15.90267573696145
+ },
+ "thayambaka-k1": {
+  "file": "audio/thayambaka-k1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 25.109931972789116
+ },
+ "thayambaka-k2": {
+  "file": "audio/thayambaka-k2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 26.427664399092972
+ },
+ "thayambaka-k3": {
+  "file": "audio/thayambaka-k3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 19.115736961451248
+ },
+ "thayambaka-k4": {
+  "file": "audio/thayambaka-k4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 19.34793650793651
+ },
+ "keli-k1": {
+  "file": "audio/keli-k1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 9.60063492063492
+ },
+ "keli-k2": {
+  "file": "audio/keli-k2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 25.963265306122448
+ },
+ "keli-k3": {
+  "file": "audio/keli-k3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 7.014512471655329
+ },
+ "keli-k4": {
+  "file": "audio/keli-k4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 23.734149659863945
+ },
+ "sopanam-k1": {
+  "file": "audio/sopanam-k1.mp3",
+  "stream": true,
+  "start": 1.0,
+  "len": 98.0
+ },
+ "sopanam-k2": {
+  "file": "audio/sopanam-k2.mp3",
+  "stream": true,
+  "start": 1.0,
+  "len": 98.0
+ },
+ "sopanam-k3": {
+  "file": "audio/sopanam-k3.mp3",
+  "stream": true,
+  "start": 1.0,
+  "len": 98.0
+ },
+ "sopanam-k4": {
+  "file": "audio/sopanam-k4.mp3",
+  "stream": true,
+  "start": 1.0,
+  "len": 110.0
+ },
+ "adantha-k1": {
+  "file": "audio/adantha-k1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 10.81986394557823
+ },
+ "adantha-k2": {
+  "file": "audio/adantha-k2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 25.841360544217686
+ },
+ "adantha-k3": {
+  "file": "audio/adantha-k3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 17.789297052154193
+ },
+ "adantha-k4": {
+  "file": "audio/adantha-k4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 9.229297052154195
+ },
+ "anchadantha-k1": {
+  "file": "audio/anchadantha-k1.mp3",
+  "loopStart": 0.5,
+  "loopLen": 18.883537414965986
+ },
+ "anchadantha-k2": {
+  "file": "audio/anchadantha-k2.mp3",
+  "loopStart": 0.5,
+  "loopLen": 14.308843537414965
+ },
+ "anchadantha-k3": {
+  "file": "audio/anchadantha-k3.mp3",
+  "loopStart": 0.5,
+  "loopLen": 13.028843537414966
+ },
+ "anchadantha-k4": {
+  "file": "audio/anchadantha-k4.mp3",
+  "loopStart": 0.5,
+  "loopLen": 8.474467120181405
+ }
+}
