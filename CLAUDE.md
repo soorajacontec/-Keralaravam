@@ -23,7 +23,7 @@ Keralaravam is a static, offline-capable PWA (Kerala festival sounds: melams, am
 
 ## Required steps when changing things
 
-- After any change to the app, bump `CACHE` in `sw.js` (currently `keralaravam-v67`). Otherwise installed copies keep the old version.
+- After any change to the app, bump `CACHE` in `sw.js` (currently `keralaravam-v68`). Otherwise installed copies keep the old version.
 - To add or replace a built-in recording:
   1. Put the MP3 in `audio/`.
   2. Add its loop points to `dev/loops.json`.
