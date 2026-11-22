@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Keralaravam</string>
+    <string name="title_activity_main">Keralaravam</string>
+    <string name="package_name">com.sskblum.keralaravam</string>
+    <string name="custom_url_scheme">com.sskblum.keralaravam</string>
+</resources>

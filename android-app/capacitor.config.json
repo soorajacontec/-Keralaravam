@@ -1,0 +1,13 @@
+{
+  "appId": "com.sskblum.keralaravam",
+  "appName": "Keralaravam",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https",
+    "hostname": "keralaravam.app"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#120f09"
+  }
+}
