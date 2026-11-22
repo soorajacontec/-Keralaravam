@@ -79,6 +79,23 @@ button{cursor:pointer}
 .icon-btn svg{width:20px;height:20px}
 .pill-btn{height:42px;padding-inline:16px;border-radius:21px;border:0;background:var(--accent);color:var(--accent-fg);font-weight:600;font-size:.9rem}
 
+
+/* Keep the top bar clear of the Android status bar (the app draws edge to edge) */
+.top{padding-top:calc(10px + max(env(safe-area-inset-top,0px),var(--safe-area-inset-top,0px)))}
+/* Top bar on phones: smaller logo, full title, short tagline, three buttons (theme lives in the Colours sheet) */
+@media (max-width:719px){
+  .top{gap:8px;padding-block:8px;padding-top:calc(8px + max(env(safe-area-inset-top,0px),var(--safe-area-inset-top,0px)))}
+  .brand{gap:8px}
+  .brand svg{width:34px;height:34px}
+  .brand h1{font-size:1.3rem}
+  .brand .ml{font-size:.78rem;margin-top:1px}
+  .tg-x{display:none}
+  .top-actions{gap:6px;flex:none}
+  .top .icon-btn,.top .lang-btn{width:40px;height:40px}
+  #themeBtn{display:none}
+  .pill-btn#installBtn{height:36px;padding-inline:12px;font-size:.8rem}
+}
+
 /* Layout */
 .layout{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
 @media (min-width:960px){
@@ -527,6 +544,25 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
 .mini .skip{width:42px;height:42px;flex:none}
 @media (min-width:960px){.mini{display:none}}
 
+
+/* Bottom tabs (phones): one area per screen, mini player above the bar. Desktop keeps the two-column page. */
+.tabbar{display:none}
+@media (max-width:959px){
+  :root{--tabh:calc(58px + env(safe-area-inset-bottom,0px))}
+  .app{padding-block:8px calc(var(--tabh) + 96px)}
+  body:not([data-tab="play"]) [data-tab="play"],body:not([data-tab="fest"]) [data-tab="fest"],body:not([data-tab="practice"]) [data-tab="practice"],body:not([data-tab="lib"]) [data-tab="lib"],body:not([data-tab="amb"]) [data-tab="amb"]{display:none}
+  .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:22;background:var(--surface);border-top:1px solid var(--line);padding:0 4px env(safe-area-inset-bottom,0px);box-shadow:0 -6px 20px hsl(0 0% 0% / .06)}
+  .tabbar button{flex:1;min-width:0;height:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:transparent;color:var(--muted);font-size:.68rem;font-weight:600;line-height:1.1;padding:0 2px;border-radius:12px}
+  .tabbar button span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tabbar svg{width:23px;height:23px;flex:none}
+  .tabbar button[aria-current="page"]{color:var(--accent)}
+  .tabbar button[aria-current="page"] svg{background:var(--accent-soft);border-radius:10px;padding:2px 8px;width:46px;box-sizing:border-box}
+  .mini{bottom:var(--tabh);padding-bottom:10px}
+  body[data-tab="play"] .mini{display:none}
+  .sugg{bottom:calc(var(--tabh) + 82px)}
+}
+@media (min-width:960px){.tabbar{display:none!important}}
+
 /* Sheet */
 .scrim{position:fixed;inset:0;background:hsl(0 0% 0% / .45);z-index:40;display:flex;align-items:flex-end;justify-content:center}
 @media (min-width:640px){.scrim{align-items:center}}
@@ -580,7 +616,7 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
   </header>
 
   <main class="layout">
-    <section class="player" aria-label="Now playing">
+    <section class="player" data-tab="play" aria-label="Now playing">
       <div class="player-tools">
       <button class="info-btn player-info" id="npInfo" aria-label="About this melam"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg></button>
       <button class="info-btn player-pill" id="sleepBtn" aria-label="Sleep and wake-up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg><span id="sleepBadge"></span></button>
@@ -631,28 +667,28 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
     </section>
 
     <div class="controls">
-      <section class="panel" aria-labelledby="ensH">
+      <section class="panel" data-tab="play" aria-labelledby="ensH">
         <div class="panel-head"><h3 id="ensH">Ensemble</h3><span class="ml">മേളം</span></div>
         <div class="solo" id="solo"></div>
         <div class="presets" id="presets"></div>
         <div class="solo-more"><button class="pill-btn ghost" id="soloMore"></button></div>
       </section>
 
-      <section class="panel" aria-labelledby="calH">
+      <section class="panel" data-tab="fest" aria-labelledby="calH">
         <div class="panel-head"><h3 id="calH">Festival calendar</h3><span class="ml">ഉത്സവ കലണ്ടർ</span></div>
         <p class="hint" id="calHint"></p>
         <div id="calList"></div>
         <div class="solo-more"><button class="pill-btn ghost" id="calMore"></button></div>
       </section>
 
-      <section class="panel" aria-labelledby="mixesH">
+      <section class="panel" data-tab="lib" aria-labelledby="mixesH">
         <div class="panel-head"><h3 id="mixesH">My mixes</h3><span class="ml">എന്റെ മിക്സുകൾ</span></div>
         <p class="hint" id="mixHint"></p>
         <div class="mix-save"><input type="text" id="mixName" maxlength="40" autocomplete="off"><button class="pill-btn" id="mixSave"></button></div>
         <div class="mixlist" id="mixList"></div>
       </section>
 
-      <section class="panel" aria-labelledby="loopH">
+      <section class="panel" data-tab="practice" aria-labelledby="loopH">
         <div class="panel-head"><h3 id="loopH">Loop</h3><span class="ml">ആവർത്തനം</span></div>
         <div class="field">
           <div class="field-label"><span>Loop mode</span></div>
@@ -685,7 +721,7 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="prH">
+      <section class="panel" data-tab="practice" aria-labelledby="prH">
         <div class="panel-head"><h3 id="prH">Practice</h3><span class="ml">പരിശീലനം</span></div>
         <p class="hint" id="prHint"></p>
         <div class="field"><div class="field-label"><span id="prSpeedL"></span><span id="prSpeedV"></span></div>
@@ -696,12 +732,12 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
         <div class="rt-act"><button class="pill-btn" id="prGo"></button><p class="amb-stat" id="prStat" aria-live="polite"></p></div>
       </section>
 
-      <section class="panel" aria-labelledby="mixH">
+      <section class="panel" data-tab="practice" aria-labelledby="mixH">
         <div class="panel-head"><h3 id="mixH">Instruments</h3><span class="ml">വാദ്യങ്ങൾ</span></div>
         <div class="mix" id="mixer"></div>
       </section>
 
-      <section class="panel" aria-labelledby="recH">
+      <section class="panel" data-tab="lib" aria-labelledby="recH">
         <div class="panel-head"><h3 id="recH">Your recordings</h3><span class="ml">റെക്കോർഡിങ്ങുകൾ</span></div>
         <p class="hint">Upload a recording for any melam. The app takes the 5 minutes you choose, finds a smooth loop point, compresses it and adds it as "My upload". Switch versions in the player. Uploads stay on this device.</p>
         <div class="add-row">
@@ -718,7 +754,7 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
         <p class="amb-stat" id="bkMsg" hidden aria-live="polite"></p></div>
       </section>
 
-      <section class="panel" aria-labelledby="ytH">
+      <section class="panel" data-tab="lib" aria-labelledby="ytH">
         <div class="panel-head"><h3 id="ytH">Your YouTube videos</h3><span class="ml">യൂട്യൂബ് വീഡിയോകൾ</span></div>
         <p class="hint" id="ytHint"></p>
         <form class="yt-form" id="ytForm">
@@ -731,7 +767,7 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
         <div class="urecs" id="ytList"></div>
       </section>
 
-      <section class="panel" aria-labelledby="yaH">
+      <section class="panel" data-tab="lib" aria-labelledby="yaH">
         <div class="panel-head"><h3 id="yaH">Your YouTube audios</h3><span class="ml">യൂട്യൂബ് ഓഡിയോ</span></div>
         <p class="hint" id="yaHint"></p>
         <form class="yt-form" id="yaForm">
@@ -744,7 +780,7 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
         <div class="urecs" id="yaList"></div>
       </section>
 
-      <section class="panel" aria-labelledby="ybH">
+      <section class="panel" data-tab="amb" aria-labelledby="ybH">
         <div class="panel-head"><h3 id="ybH">Festival ambience originals (YouTube)</h3><span class="ml">ഉത്സവ ഒറിജിനൽ</span></div>
         <p class="hint" id="ybHint"></p>
         <form class="yt-form" id="ybForm">
@@ -757,7 +793,7 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
         <div class="urecs" id="ybList"></div>
       </section>
 
-      <section class="panel" aria-labelledby="ambH">
+      <section class="panel" data-tab="amb" aria-labelledby="ambH">
         <div class="panel-head"><h3 id="ambH">Festival ambience</h3><span class="ml">ഉത്സവം</span></div>
         <div class="amb-top">
           <button class="pill-btn amb-play" id="ambPlay"></button>
@@ -770,7 +806,7 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
         <input type="file" id="ambFile" accept="audio/*" hidden>
       </section>
 
-      <section class="panel" aria-labelledby="rtH">
+      <section class="panel" data-tab="amb" aria-labelledby="rtH">
         <div class="panel-head"><h3 id="rtH">Sleep and wake-up</h3><span class="ml">ഉറക്കവും ഉണർത്തലും</span></div>
         <h4 class="rt-h" id="slH"></h4>
         <div class="rt-grid">
@@ -805,6 +841,14 @@ html[lang="ml"] .info-sec h4{letter-spacing:0;font-size:.9rem}
   <button class="sugg-main" id="suggGo"><span class="info-art sugg-art" id="suggArt" aria-hidden="true"></span><span class="sugg-txt"><small id="suggWhy"></small><b id="suggT"></b><span id="suggS"></span></span><span class="sugg-cta" id="suggCta"></span></button>
   <button class="sugg-x" id="suggX" aria-label="Dismiss suggestion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
 </div>
+
+<nav class="tabbar" id="tabbar" aria-label="Sections">
+  <button data-go="play" aria-current="page"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Play</span></button>
+  <button data-go="fest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Festivals</span></button>
+  <button data-go="practice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span>Practice</span></button>
+  <button data-go="lib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4v16M10 4v16"/><path d="M15 5l4 14"/></svg><span>Library</span></button>
+  <button data-go="amb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3.3 0-5.5 2.6-5.5 6v3.2L4.8 15.5h14.4l-1.7-3.3V9c0-3.4-2.2-6-5.5-6ZM10 19a2 2 0 0 0 4 0"/></svg><span>Ambience</span></button>
+</nav>
 
 <div class="mini" id="mini">
   <button class="mini-thumb" id="miniThumb" aria-label="Show player"><span class="info-art" id="miniArt" aria-hidden="true"></span></button>
@@ -3096,7 +3140,7 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&document.
 /* mini player with animated art */
 function renderMini(){const a=$('#miniArt');if(a&&a.dataset.id!==P.id){try{const d=INFO[P.id];a.innerHTML=ART[d&&d.f]||ART.chenda;a.dataset.id=P.id}catch(e){}}
   $('#mini').classList.toggle('live',bgActive())}
-$('#miniThumb').onclick=()=>{document.querySelector('.player').scrollIntoView({behavior:'smooth',block:'start'})};
+$('#miniThumb').onclick=()=>{setTab('play');document.querySelector('.player').scrollIntoView({behavior:'smooth',block:'start'})};
 
 /* suggestions */
 const SG={cur:null,last:[],t:0,hideT:0,next:0,off:false};
@@ -3278,6 +3322,7 @@ function renderHelp(){
 }
 function helpShow(sel){
   $('#helpSheet').hidden=true;let t=document.querySelector(sel);if(!t)return;
+  const tabEl=t.closest('[data-tab]');if(tabEl)setTab(tabEl.dataset.tab,false);
   const isHead=/(H|Sec)$/.test(t.id||''),panel=t.closest('.panel-head')?t.closest('.panel'):null,el=panel||t,extra=[];
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
     const mini=$('#mini'),mh=mini&&getComputedStyle(mini).display!=='none'?mini.offsetHeight:0,vh=innerHeight-mh,pad=14,r=el.getBoundingClientRect();
@@ -3551,9 +3596,17 @@ $('#infoSheet').addEventListener('click',e=>{if(e.target===$('#infoSheet'))$('#i
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#infoSheet').hidden)$('#infoSheet').hidden=true});
 $('#npInfo').onclick=()=>openInfo(P.id);
 
+
+/* ---------- Bottom tabs (phones) ---------- */
+const TABS={play:['Play','കേൾക്കുക'],fest:['Festivals','ഉത്സവം'],practice:['Practice','പരിശീലനം'],lib:['Library','ശേഖരം'],amb:['Ambience','അന്തരീക്ഷം']};
+function renderTabs(){document.querySelectorAll('#tabbar button').forEach(b=>{const t=TABS[b.dataset.go];b.querySelector('span').textContent=tr(t[0],t[1]);b.classList.toggle('on',document.body.dataset.tab===b.dataset.go);if(document.body.dataset.tab===b.dataset.go)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')})}
+function setTab(t,top){if(!TABS[t])t='play';const ch=document.body.dataset.tab!==t;document.body.dataset.tab=t;try{sessionStorage.setItem('kr-tab',t)}catch(e){}renderTabs();if(ch&&top!==false)window.scrollTo(0,0)}
+document.querySelectorAll('#tabbar button').forEach(b=>b.onclick=()=>setTab(b.dataset.go));
+(()=>{let t='play';try{t=sessionStorage.getItem('kr-tab')||'play'}catch(e){}setTab(t,false)})();
+
 /* ---------- Language ---------- */
 const I18N_NODES=[];
-(function collect(){const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const v=n.nodeValue.trim();if(v&&DICT[v]&&!n.parentElement.closest('script,style'))I18N_NODES.push([n,n.nodeValue,v])}})();
+(function collect(){const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const v=n.nodeValue.trim();if(v&&DICT[v]&&!n.parentElement.closest('script,style,#tabbar'))I18N_NODES.push([n,n.nodeValue,v])}})();
 const PH=[...document.querySelectorAll('.panel-head')].map(h=>({ml:h.querySelector('.ml'),orig:h.querySelector('.ml')&&h.querySelector('.ml').textContent,en:h.querySelector('h3')&&h.querySelector('h3').textContent.trim()}));
 let ytApiP=null;
 function ytApi(){if(window.YT&&window.YT.Player)return Promise.resolve();return ytApiP||(ytApiP=new Promise((res,rej)=>{
@@ -3716,8 +3769,9 @@ function ytChanged(){YTV.changed()}
 $('#upDelAll').onclick=deleteAllUploads;
 function applyLang(){
   try{renderSkins();applySkin()}catch(e){}
-  $('#tagline').textContent=isML()?'കേരളാരവം · ഉത്സവ ശബ്ദങ്ങൾ':'കേരളാരവം · festival sounds';try{installNote();renderSleep()}catch(e){}
+  $('#tagline').innerHTML=isML()?'കേരളാരവം<span class="tg-x"> · ഉത്സവ ശബ്ദങ്ങൾ</span>':'കേരളാരവം<span class="tg-x"> · festival sounds</span>';try{installNote();renderSleep()}catch(e){}
   PH.forEach(x=>{if(x.ml)x.ml.textContent=isML()?x.en:x.orig});
+  renderTabs();
   document.documentElement.lang=isML()?'ml':'en';
   I18N_NODES.forEach(([n,orig,k])=>{n.nodeValue=isML()?orig.replace(k,DICT[k]):orig});
   $('#langBtn .long').textContent=isML()?'English':'മലയാളം';$('#langBtn .short').textContent=isML()?'EN':'മ';$('#langBtn').setAttribute('aria-label',isML()?'Switch to English':'മലയാളത്തിലേക്ക് മാറ്റുക');

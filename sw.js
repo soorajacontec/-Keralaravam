@@ -1,5 +1,5 @@
 // Keralaravam service worker: app shell cache-first, Google Fonts stale-while-revalidate
-const CACHE = 'keralaravam-v68';
+const CACHE = 'keralaravam-v71';
 const SHELL = [
   './', './index.html', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png',
